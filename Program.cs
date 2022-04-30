@@ -673,6 +673,49 @@ namespace CodeWars
          }
       }
 
+      // Your task is to write function findSum.
+      // Upto and including n, this function will return the sum of all multiples of 3 and 5. 
+      // For example: findSum(5) should return 8 (3 + 5)
+      public static int FindSum(int n)
+      {
+         int sum = 0;
+         for (int i = 0; i <= n; i++)
+         {
+            if (i % 3 == 0 || i % 5 == 0)
+            {
+               sum += i;
+            }
+         }
+         return sum;
+      }
+
+      // Write a function which takes a list of strings and returns each line prepended by the correct number.
+      // The numbering starts at 1. The format is n: string. Notice the colon and space in between.
+      public static List<string> Number(List<string> strings)
+      {
+         List<string> newList = new List<string>();
+         for (int i = 0; i < strings.Count; i++)
+         {
+            newList.Add((i + 1) + ": " + strings[i]);
+         }
+         return newList;
+      }
+
+      // Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of the number's decimal digits.
+      public static int SumDigits(int number)
+      {
+         int sum = 0;
+         while (number != 0)
+         {
+            sum += Math.Abs(number % 10);
+            number /= 10;
+         }
+         return sum;
+      }
+
+
+
+
 
    }
 }
