@@ -793,6 +793,101 @@ namespace CodeWars
          return total;
       }
 
+      //A single line to be taken as input and save it into a variable of your choice.
+      // Print 'Hello Techgig' and then content of the variable on another line. 
+      public static void HelloTechgig()
+      {
+         string str = Console.ReadLine();
+         Console.WriteLine("Hello Techgig");
+         Console.WriteLine(str);
+      }
+
+      // Given a sequence of numbers, find the largest pair sum in the sequence.
+      public static int LargestPairSum(int[] numbers)
+      {
+         return numbers
+            .OrderByDescending(n => n)
+            .Take(2)
+            .Sum();
+      }
+
+      // Time to test your basic knowledge in functions! Return the odds from a list:
+      public static List<int> Odds(List<int> values) =>
+         values.Where(n => n % 2 == 1).ToList();
+
+      // Your task is to make function, which returns the sum of a sequence of integers.
+      // The sequence is defined by 3 non-negative values: begin, end, step(inclusive).
+      // If begin value is greater than the end, function should returns 0
+      public static int Sum(int begin, int end, int step)
+      {
+         if (begin > end)
+         {
+            return 0;
+         }
+         else
+         {
+            return begin + Sum(begin + step, end, step);
+         }
+      }
+
+      // Your function receives one side of the DNA (string, except for Haskell); you need to return the other complementary side
+      // (string).
+      // DNA strand is a string containing only C, G, A and T.
+      // Complementary strand is a string containing only G, C, T and A.
+      // Both strands must be of equal length.
+      public static string ComplementaryStrand(string dna)
+      {
+         string complementary = "";
+         for (int i = 0; i < dna.Length; i++)
+         {
+            if (dna[i] == 'A')
+            {
+               complementary += "T";
+            }
+            else if (dna[i] == 'T')
+            {
+               complementary += "A";
+            }
+            else if (dna[i] == 'G')
+            {
+               complementary += "C";
+            }
+            else if (dna[i] == 'C')
+            {
+               complementary += "G";
+            }
+         }
+         return complementary;
+      }
+
+
+      // Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
+      public static string EveryOther(string str)
+      {
+         string everyOther = "";
+         for (int i = 0; i < str.Length; i += 2)
+         {
+            everyOther += str[i];
+         }
+         return everyOther;
+      }
+
+      // Two red beads are placed between every two blue beads. There are N blue beads. After looking at the arrangement below work out the number of red beads.
+      public static int RedBeads(int n)
+      {
+         if (n < 2)
+         {
+            return 0;
+         }
+         return (n - 1) * 2;
+      }
+
+      // Write a function which removes from string all non-digit characters and parse the remaining to number. E.g: "hell5o wor6ld" -> 56
+      public static int NonDigitsToNumber(string str)
+      {
+         return int.Parse(Regex.Replace(str, @"[^\d]", ""));
+      }
+
 
 
 
