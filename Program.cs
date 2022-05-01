@@ -31,6 +31,12 @@ namespace CodeWars
          Console.WriteLine(Shortcut("codewars"));
          Console.WriteLine(IsEven(4));
          Console.WriteLine(IsSortedAndHow(vs));
+         ChristmasTree();
+         Console.WriteLine(ValidPhoneNumber("+48 592-045-990"));
+         Console.WriteLine(Capitalized("Use Of Technology"));
+         Console.WriteLine(Capitalized("Rocket science"));
+         Console.WriteLine(NumbersMultipication(1, 5));
+         Console.WriteLine(HowManyOccurrences("do it now do", "do"));
       }
       public static string DoubleChar(string s)
       {
@@ -713,6 +719,79 @@ namespace CodeWars
          return sum;
       }
 
+      // Given an array of positive digits, write a method that returns number of times that two 7's are next to each other in an array.
+      public static int Sevens(int[] numbers)
+      {
+         int count = 0;
+         for (int i = 0; i < numbers.Length - 1; i++)
+         {
+            if (numbers[i] == 7 && numbers[i + 1] == 7)
+            {
+               count++;
+            }
+         }
+         return count;
+      }
+
+      // Write a method that draws Christmas tree shape with * characters. 
+
+      public static void ChristmasTree()
+      {
+         for (int i = 0; i < 3; i++)
+         {
+            for (int j = 0; j < 7 - i; j++)
+            {
+               Console.Write(" ");
+            }
+            for (int k = 0; k < i * 2 + 1; k++)
+            {
+               Console.Write("*");
+            }
+            Console.WriteLine();
+         }
+      }
+
+      // Given a phone number as a string, write a method that checks if it is in the format +XX YYY-YYY-YYY.
+      public static bool ValidPhoneNumber(string phoneNumber)
+      {
+         return Regex.IsMatch(phoneNumber, @"^\+\d{2}\s(\d{3}\-){2}(\d{3})");
+      }
+
+      // Given a string, write a  Regex method that checks if every word begins with capital letter.
+      public static bool Capitalized(string str)
+      {
+         return Regex.IsMatch(str, @"^([A-Z]\w*\s*)+\W*$");
+      }
+
+      // Given two integers a and b (a <= b) as range, write a method that returns multiplication of numbers from given range.
+      public static int NumbersMultipication(int from, int to)
+      {
+         while (from == to)
+         {
+            return from;
+         }
+         return from * NumbersMultipication(from + 1, to);
+      }
+
+      // Given a string and substring, write a method that returns number of occurrences of substring in the string.
+      // Assume that both are case-sensitive.
+      public static int HowManyOccurrences(string str, string subStr)
+      {
+         int found;
+         int total = 0;
+         for (int i = 0; i < str.Length; i++)
+         {
+            found = str.IndexOf(subStr, i);
+
+            if (found > -1)
+            {
+               total++;
+               i = found;
+            }
+         }
+
+         return total;
+      }
 
 
 
