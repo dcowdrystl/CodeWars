@@ -888,6 +888,21 @@ namespace CodeWars
          return int.Parse(Regex.Replace(str, @"[^\d]", ""));
       }
 
+      //  Write a function which takes its speed in km per hour and returns it in cm per second, rounded down to the integer (= floored).
+      public static int SpeedConverter(int kmPerHour)
+      {
+         return (int)Math.Floor(kmPerHour * 27.7778);
+      }
+
+      //
+      
+
+
+
+
+
+
+
 
 
 
