@@ -39,6 +39,8 @@ namespace CodeWars
          Console.WriteLine(HowManyOccurrences("do it now do", "do"));
          Console.WriteLine("break");
          Console.WriteLine(NumberOfDigits(5678));
+         Console.WriteLine(SumOfMultiples(10, 200));
+         Console.WriteLine(Day(4));
       }
       public static string DoubleChar(string s)
       {
@@ -924,10 +926,55 @@ namespace CodeWars
          return count;
       }
 
+      // You have a test string . Your task is to match the string hackerrank using Regex. This is case sensitive.
+      public static bool HackerRank(string str)
+      {
+         return Regex.IsMatch(str, @"^hackerrank\s*$");
+      }
+
+      // Find the sum of all multiples of n below m
+      public static int SumOfMultiples(int n, int m)
+      {
+         return Enumerable.Range(1, m - 1).Where(i => i % n == 0).Sum();
+      }
 
 
+      // This function should test if the factor is a factor of base. If it is, it should return true, otherwise false.
+      public static bool IsFactor(int num, int factor)
+      {
+         return num % factor == 0;
+      }
 
+      // Complete the function so that it returns the name of the day according to the integer input.
+      // If the integer input is less than 1 or greater than 7 it should return "Invalid day".
+      public static string Day(int day)
+      {
+         switch (day)
+         {
+            case 1:
+               return "Monday";
+            case 2:
+               return "Tuesday";
+            case 3:
+               return "Wednesday";
+            case 4:
+               return "Thursday";
+            case 5:
+               return "Friday";
+            case 6:
+               return "Saturday";
+            case 7:
+               return "Sunday";
+            default:
+               return "Invalid day";
+         }
+      }
 
+      // Write the function PowerOfTwo that determines if a given non-negative integer is a power of two.
+      public static bool PowerOfTwo(int n)
+      {
+         return n > 0 && (n & (n - 1)) == 0;
+      }
 
 
 
