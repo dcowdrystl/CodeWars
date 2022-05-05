@@ -9,7 +9,7 @@ namespace CodeWars
    {
       public static void Main(string[] args)
       {
-         int[] vs = {-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+         int[] vs = { -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8 };
          string[] array = { "first", "second", "third", "forth" };
 
          Console.WriteLine(Greet("Dan", "Dan"));
@@ -37,6 +37,8 @@ namespace CodeWars
          Console.WriteLine(Capitalized("Rocket science"));
          Console.WriteLine(NumbersMultipication(1, 5));
          Console.WriteLine(HowManyOccurrences("do it now do", "do"));
+         Console.WriteLine("break");
+         Console.WriteLine(NumberOfDigits(5678));
       }
       public static string DoubleChar(string s)
       {
@@ -146,9 +148,9 @@ namespace CodeWars
       {
          // your code here
          List<int> result = new List<int>();
-         for(int i = a; i <= b; i++)
+         for (int i = a; i <= b; i++)
          {
-            result.Add(i); 
+            result.Add(i);
          }
          return result.ToArray();
       }
@@ -894,8 +896,33 @@ namespace CodeWars
          return (int)Math.Floor(kmPerHour * 27.7778);
       }
 
-      //
-      
+      // Create a function that takes a string and an integer (n).
+      // The function should return a string that repeats the input string n number of times.
+      // If anything other than a string is passed in you should return "Not a string"
+      public static string RepeatString(object toRepeat, int n)
+      {
+         if (toRepeat is string)
+         {
+            return string.Concat(Enumerable.Repeat((string)toRepeat, n));
+         }
+         else
+         {
+            return "Not a string";
+         }
+      }
+
+      // Determine the total number of digits in the integer (n>0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits.
+      // Be careful to avoid overflows/underflows.
+      public static int NumberOfDigits(int n)
+      {
+         int count = 0;
+         while (n > 0)
+         {
+            n /= 10;
+            count++;
+         }
+         return count;
+      }
 
 
 
@@ -906,5 +933,11 @@ namespace CodeWars
 
 
 
-   }
+
+
+
+
+
+
+      }
 }
