@@ -41,6 +41,8 @@ namespace CodeWars
          Console.WriteLine(NumberOfDigits(5678));
          Console.WriteLine(SumOfMultiples(10, 200));
          Console.WriteLine(Day(4));
+         Console.WriteLine(Name());
+         Console.WriteLine(VowelIndices("super"));
       }
       public static string DoubleChar(string s)
       {
@@ -976,7 +978,35 @@ namespace CodeWars
          return n > 0 && (n & (n - 1)) == 0;
       }
 
+      // Assuming that name is a String and it checks for user typos to return a name with a first capital letter (Xxxx)
+      public static string Name(string name = "")
+      {
+         if (name == "" || name == null)
+         {
+            return "Hello, World!";
+         }
+         else
+         {
+            //name.ToLower();
+            return "Hello, " + name.Substring(0, 1).ToUpper() + name.Substring(1).ToLower();
+         }
+      }
 
+      // We want to know the index of the vowels in a given word
+      // Example: given a string "super", we should return a list of [2, 4]
+      public static int[] VowelIndices(string word)
+      {
+         /*List<int> vowels = new List<int>();
+         for (int i = 0; i < word.Length; i++)
+         {
+            if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u')
+            {
+               vowels.Add(i + 1);
+            }
+         }
+         return vowels.ToArray();*/
+         return word.Select((x, i) => ++i).Where(x => "aoueiyAEIOUY".Contains(word[x - 1])).ToArray();
+      }
 
 
 
