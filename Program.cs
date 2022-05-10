@@ -1030,7 +1030,31 @@ namespace CodeWars
          return str.ToLower().GroupBy(x => x).Where(x => x.Count() > 1).Count();
       }
 
+      // You are given a string containing a sequence of character sequences separated by commas.
+      // Write a function which returns a new string containing the same character sequences except the first and the last ones but this time
+      // separated by spaces.
+      //f the input string is empty or the removal of the first and last items would cause the resulting string to be empty,
+      //return an empty value (represented as a generic value NULL)
+      public static string Array(string s)
+      {
+         if (string.IsNullOrEmpty(s))
+         {
+            return null;
+         }
 
+         string[] arr = s.Split(',', StringSplitOptions.RemoveEmptyEntries);
 
+         if (arr.Length < 3)
+         {
+            return null;
+         }
+
+         return string.Join(' ', arr, 1, arr.Length - 2);
       }
+
+
+
+
+
+   }
 }
