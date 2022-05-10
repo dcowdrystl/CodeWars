@@ -43,6 +43,7 @@ namespace CodeWars
          Console.WriteLine(Day(4));
          Console.WriteLine(Name());
          Console.WriteLine(VowelIndices("super"));
+         Console.WriteLine(DuplicateCount("indivisibility"));
       }
       public static string DoubleChar(string s)
       {
@@ -1009,10 +1010,25 @@ namespace CodeWars
       }
 
 
+      // Your program will take in a string and clean out all numeric characters, and return a string with spacing and special characters ~#$%^&!@*():;"'.,? all intact.
+      public static string CleanString(string str)
+      {
+         return Regex.Replace(str, @"\d", "");
+      }
 
+      //Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+      //You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+      public static int Litres(int time)
+      {
+         return (int)Math.Floor(time * 0.5);
+      }
 
-
-
+      //Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string.
+      //The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+      public static int DuplicateCount(string str)
+      {
+         return str.ToLower().GroupBy(x => x).Where(x => x.Count() > 1).Count();
+      }
 
 
 
