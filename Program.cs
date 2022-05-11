@@ -44,6 +44,7 @@ namespace CodeWars
          Console.WriteLine(Name());
          Console.WriteLine(VowelIndices("super"));
          Console.WriteLine(DuplicateCount("indivisibility"));
+         Console.WriteLine(CalculateTip(26.95, "good"));
       }
       public static string DoubleChar(string s)
       {
@@ -1061,7 +1062,50 @@ namespace CodeWars
 
       }
 
+      //Write a function that takes a string and turns any and all "words" (see below) within that string of length 4 or greater into an abbreviation, following these rules:
+      //A "word" is a sequence of alphabetical characters.By this definition, any other character like a space or hyphen (eg. "elephant-ride") will split up a series of letters into two words (eg. "elephant" and "ride").
+      //The abbreviated version of the word should have the first letter, then the number of removed characters, then the last letter(eg. "elephant ride" => "e6t r2e").
+      // Example: "my. dog, isn't feeling very well." => "my. dog, isn't f5g v2y w2l."
+      //If the word's length is less than 4, it should not be abbreviated.
+
+      public static string Abbreviate(string input)
+      {
+         return Regex.Replace(input, @"\b\w{4,}", m => $"{m.Value[0]}{m.Value.Length - 2}{m.Value[m.Value.Length - 1]}");
+      }
 
 
-   }
+      //The rating is case insensitive (so "great" = "GREAT")
+      // Round the tip up to the nearest whole integer
+      public static int CalculateTip(double amount, string rating)
+      {
+         double tip = 0;
+         switch (rating.ToLower())
+         {
+            case "terrible":
+               tip = 0;
+               break;
+            case "poor":
+               tip =  0.05;
+               break;
+            case "good":
+               tip =  0.1;
+               break;
+            case "great":
+               tip = 0.15;
+               break;
+            case "excellent":
+               tip = 0.2;
+               break;
+            default:
+               return -1;
+               
+         }
+         return (int)Math.Ceiling(amount * tip);
+      }
+
+
+
+
+
+      }
 }
