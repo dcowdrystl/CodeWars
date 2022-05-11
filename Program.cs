@@ -1052,7 +1052,14 @@ namespace CodeWars
          return string.Join(' ', arr, 1, arr.Length - 2);
       }
 
+      //Implement String#digit, which should return true if given object is one digit (0-9) long, false otherwise.
+      public static bool IsDigit(string str)
+      {
+         return str.Length == 1 && str[0] >= '0' && str[0] <= '9';
+         // or
+         // return Regex.IsMatch(str, @"^\d\z");
 
+      }
 
 
 
