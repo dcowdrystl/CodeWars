@@ -1104,6 +1104,12 @@ namespace CodeWars
       }
 
 
+      // Get ASCII value of a character.
+      public static int AsciiValue(char c)
+      {
+         return (int)c;
+      }
+
 
 
 
