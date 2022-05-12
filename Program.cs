@@ -1128,6 +1128,66 @@ namespace CodeWars
 
       }
 
+      // in this simple exercise, you will build a program that takes a value, integer , and returns a list of its multiples up to another value, limit .
+      // If limit is a multiple of integer, it should be included as well. There will only ever be positive integers passed into the function,
+      // not consisting of 0. The limit will always be higher than the base.
+      //For example, if the parameters passed are(2, 6), the function should return [2, 4, 6] as 2, 4, and 6 are the multiples of 2 up to 6.
+      //If you can, try writing it in only one line of code.
+      public static List<int> FindMultiples(int integer, int limit)
+      {
+         List<int> result = new List<int>();
+         for (int i = integer; i <= limit; i += integer)
+         {
+            result.Add(i);
+         }
+         return result;
+      }
+
+
+      public static bool CheckTheBucket(string[] bucket)
+      {
+         return bucket.Any(x => x == "gold");
+      }
+
+      public static string UefaEuro2016(string[] teams, int[] scores)
+      {
+         int max = scores.Max();
+         int min = scores.Min();
+         int maxIndex = scores.ToList().IndexOf(max);
+         int minIndex = scores.ToList().IndexOf(min);
+         if (max == min) 
+         {
+            return $"At match {teams[0]} - {teams[1]}, teams played a draw.";
+         }
+         return $"At match {teams[0]} - {teams[1]}, {teams[maxIndex]} won!";
+         
+      }
+
+      // Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product .
+      // Notes : Array/list will contain positives only .
+      // Array/list will always have even size
+      // minSum({5,4,2,3}) ==> return (22)  as (5 * 2) + (4 * 3) = 22
+      
+
+      public static int MinSum(int[] a)
+      {
+         var list = a.OrderBy(x => x).ToList();
+         int result = 0;
+         int i = 0, j = a.Length - 1;
+
+         while (i < j)
+         {
+            result += list[i++] * list[j--];
+         }
+
+         return result;
+
+
+
+      }
+
+
+
 
    }
 }
