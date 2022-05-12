@@ -1187,7 +1187,77 @@ namespace CodeWars
       }
 
 
+      public static int[] humanYearsCatYearsDogYears(int humanYears)
+      {
+         int[] result = new int[3];
+         if (humanYears == 1)
+         {
+            result[0] = 1;
+            result[1] = 15;
+            result[2] = 15;
+         }
+         else if (humanYears == 2)
+         {
+            result[0] = 2;
+            result[1] = 24;
+            result[2] = 24;
+         }
+         else if (humanYears > 2)
+         {
+            result[0] = humanYears;
+            result[1] = 24 + (humanYears - 2) * 4;
+            result[2] = 24 + (humanYears - 2) * 5;
+         }
+         return result;
+
+         // Another Way
+         /*switch (humanYears)
+         {
+            case 1: return new[] { 1, 15, 15 };
+            case 2: return new[] { 2, 24, 24 };
+            default: return new[] { humanYears, (humanYears - 2) * 4 + 15 + 9, (humanYears - 2) * 5 + 15 + 9 };
+         }*/
+      }
 
 
+      // As a part of this Kata, you need to create a function that when provided with a triplet,
+      // returns the index of the numerical element that lies between the other two elements.
+      // The input to the function will be an array of three distinct numbers (Haskell: a tuple).
+      // For example: gimme([2, 3, 1]) => 0
+
+      public static int gimme(int[] inputArray)
+      {
+         int[] sorted = inputArray.OrderBy(x => x).ToArray();
+         return inputArray.ToList().IndexOf(sorted[1]);
+      }
+
+      // Count the number of occurrences of each character and return it as a list of tuples in order of appearance. For empty output return an empty list.
+
+      public static List<Tuple<char, int>> OrderedCount(string input)
+      {
+         List<Tuple<char, int>> result = new List<Tuple<char, int>>();
+         Dictionary<char, int> dict = new Dictionary<char, int>();
+         foreach (char c in input)
+         {
+            if (dict.ContainsKey(c))
+            {
+               dict[c]++;
+            }
+            else
+            {
+               dict.Add(c, 1);
+            }
+         }
+         foreach (var item in dict)
+         {
+            result.Add(new Tuple<char, int>(item.Key, item.Value));
+         }
+         return result;
+
+          /*return input
+               .GroupBy(x => x)
+               .Select(x => Tuple.Create(x.Key, x.Count()))
+               .ToList();*/
+      }
    }
 }
