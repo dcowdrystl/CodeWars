@@ -1110,8 +1110,24 @@ namespace CodeWars
          return (int)c;
       }
 
-
-
+      // reate a function that converts US dollars (USD) to Chinese Yuan (CNY) . The input is the amount of USD as an integer, and the output should be a string that states the amount of Yuan followed by 'Chinese Yuan'
+      public static string Convert(int usd)
+      {
+         string con = $"{usd * 6.75} Chinese Yuan";
+         if (con.Contains(".00"))
+         {
+            return $"{usd * 6.75} Chinese Yuan";
+         }
+         else
+         {
+            return $"{usd * 6.75:0.00} Chinese Yuan";
+         }
+         //Another Way
+         // double result  = usd*6.75;
+         // return $"{string.Format("{0:0.00}", result)} Chinese Yuan";
 
       }
+
+
+   }
 }
