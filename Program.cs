@@ -1259,5 +1259,49 @@ namespace CodeWars
                .Select(x => Tuple.Create(x.Key, x.Count()))
                .ToList();*/
       }
-   }
+
+      // You must implement a function that returns the difference between the largest and the smallest value in a given list / array (lst) received as the parameter.
+      //lst contains integers, that means it may contain some negative numbers
+      //if lst is empty or contains a single element, return 0
+      //lst is not sorted
+      public static int MinMax(int[] lst)
+      {
+         if (lst.Length == 0)
+         {
+            return 0;
+         }
+         else if (lst.Length == 1)
+         {
+            return 0;
+         }
+         else
+         {
+            return lst.Max() - lst.Min();
+         }
+      }
+
+      // Given a list of integers, return the largest product that can be made by multiplying any three integers.
+      // For example, if the list is [-10, -10, 5, 2], we should return 500, since that's -10 * -10 * 5.
+      // You can assume the list has at least three integers.
+      // The input will always be valid (numbers will be an array of at least three positive integers).
+      // You must use constant space.
+      // Your solution should run in O(n) time.
+      public static int LargestProduct(int[] numbers)
+      {
+         int max = numbers.Max();
+         int min = numbers.Min();
+         int maxIndex = numbers.ToList().IndexOf(max);
+         int minIndex = numbers.ToList().IndexOf(min);
+         if (max == min)
+         {
+            return max * numbers[0] * numbers[1];
+         }
+         return max * numbers[maxIndex - 1] * numbers[maxIndex + 1];
+      }
+
+      
+
+
+
+      }
 }
