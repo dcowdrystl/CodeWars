@@ -45,6 +45,7 @@ namespace CodeWars
          Console.WriteLine(VowelIndices("super"));
          Console.WriteLine(DuplicateCount("indivisibility"));
          Console.WriteLine(CalculateTip(26.95, "good"));
+         Console.WriteLine(Shape(4));
       }
       public static string DoubleChar(string s)
       {
@@ -1299,9 +1300,27 @@ namespace CodeWars
          return max * numbers[maxIndex - 1] * numbers[maxIndex + 1];
       }
 
-      
 
+      // given an integer. Give back a shape that is as long and wide as the integer. The integer will be a whole number between 1 and 50.
 
-
+      public static string Shape(int n)
+      {
+         string result = "";
+         for (int i = 0; i < n; i++)
+         {
+            for (int j = 0; j < n; j++)
+            {
+               result += "*";
+            }
+            if (result.Length > 1 && i < n - 1)
+            {
+               result += "\n";
+            }
+            
+         }
+         return result;
       }
+
+
+   }
 }
