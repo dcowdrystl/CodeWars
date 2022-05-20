@@ -1322,5 +1322,31 @@ namespace CodeWars
       }
 
 
+      // You'll be given a string, and have to return the sum of all characters as an int. The function should be able to handle all ASCII characters.
+      // For example: "a" => 97, "b" => 98, "z" => 122.
+
+      public static int GetSum(string str)
+      {
+         int result = 0;
+         foreach (char c in str)
+         {
+            result += (int)c;
+         }
+         return result;
+      }
+
+      
+      // Write a function that takes a positive integer n, sums all the cubed values from 1 to n, and returns that sum
+      // For example, sumcubes(3) should return 1+8+27 = 36
+      public static long SumCubes(int n)
+      {
+         long result = 0;
+         for (int i = 1; i <= n; i++)
+         {
+            result += (long)Math.Pow(i, 3);
+         }
+         return result;
+
+      }
    }
 }
