@@ -1399,7 +1399,18 @@ namespace CodeWars
          }
          return result;
       }
-      
+
+      //Write a method that takes one argument as name and then greets that name, with the first letter capitalized and the rest lowercase and ends with an exclamation point.
+      //For example, if the name is "jim", the method should return "Hello Jim!"
+      //If the name is "JIM", the method should return "Hello Jim!"
+      //If the name is "JIMMY", the method should return "Hello Jimmy!"
+
+      public static string Greet(string name)
+      {
+         string result = "Hello " + name[0].ToString().ToUpper() + name.Substring(1).ToLower() + "!";
+         return result;
+      }
+
 
    }
 }
