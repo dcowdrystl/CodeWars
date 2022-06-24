@@ -1112,7 +1112,7 @@ namespace CodeWars
       }
 
       // reate a function that converts US dollars (USD) to Chinese Yuan (CNY) . The input is the amount of USD as an integer, and the output should be a string that states the amount of Yuan followed by 'Chinese Yuan'
-      public static string Convert(int usd)
+      public static string ConvertCurrency(int usd)
       {
          string con = $"{usd * 6.75} Chinese Yuan";
          if (con.Contains(".00"))
@@ -1411,6 +1411,25 @@ namespace CodeWars
          return result;
       }
 
+
+      //Create the function that takes as a parameter a sequence of numbers represented as strings and outputs a sequence of numbers.
+      //For example, the input sequence of numbers is ["1", "2", "3", "4", "5"], and the output sequence of numbers is [1, 2, 3, 4, 5].
+      //The input sequence of numbers can be empty.
+      //The input sequence of numbers can be a single number.
+      //The input sequence of numbers can be a sequence of numbers.
+      //Note that you can receive floats as well
+
+      public static double[] ConvertToDouble(string[] numbers)
+      {
+         double[] result = new double[numbers.Length];
+         for (int i = 0; i < numbers.Length; i++)
+         {
+            result[i] = Convert.ToDouble(numbers[i]);
+         }
+         return result;
+      }
+
+      
 
    }
 }
