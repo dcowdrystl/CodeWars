@@ -1429,7 +1429,36 @@ namespace CodeWars
          return result;
       }
 
-      
+      // Write function alternateCase which switch every letter in string from upper to lower and from lower to upper. 
+      // For example, alternateCase("Hello") should return "hELLO".
+      // Example: alternateCase("Hello World") should return "hELLO wORLD".
+      // Example: alternateCase("aaa") should return "AAA".
+
+      public static string AlternateCase(string str)
+      {
+         //  return string.Concat(str.Select(e => char.IsUpper(e) ? char.ToLower(e) : char.ToUpper(e)));
+         string result = "";
+         for (int i = 0; i < str.Length; i++)
+         {
+            if (str[i] >= 'A' && str[i] <= 'Z')
+            {
+               result += (char)(str[i] + 32);
+            }
+            else if (str[i] >= 'a' && str[i] <= 'z')
+            {
+               result += (char)(str[i] - 32);
+            }
+            else
+            {
+               result += str[i];
+            }
+         }
+         return result;
+      }
+
+
+
+
 
    }
 }
